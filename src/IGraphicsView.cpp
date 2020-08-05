@@ -8,7 +8,6 @@ IGraphicsView::IGraphicsView(QWidget* parent)
     auto* scene = new QGraphicsScene(this);
     setScene(scene);
 
-    // TODO: delete some unnecesarry
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setDragMode(QGraphicsView::ScrollHandDrag);
@@ -22,7 +21,6 @@ IGraphicsView::IGraphicsView(QWidget* parent)
 void
 IGraphicsView::load(const QString& fileName)
 {
-    // TODO: check file usability
     QPixmap pic(fileName);
     pixmap_item_->setPixmap(pic);
     scene()->setSceneRect(0, 0, pic.width(), pic.height());

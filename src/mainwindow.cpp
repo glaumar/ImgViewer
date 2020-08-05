@@ -1,9 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
-// TODO: delete begin
-#include <QDebug>
-// TODO: delete end
 #include <QDesktopWidget>
 #include <QFileDialog>
 #include <QIcon>
@@ -43,6 +40,15 @@ MainWindow::MainWindow(QWidget* parent)
         view_->resetTransform();
         view_->scale(original_zoom_ratio_, original_zoom_ratio_);
     });
+
+    context_.addAction(QIcon::fromTheme("object-flip-vertical"), "flip vertical", [this]() {
+       view_->scale(1, -1);
+    });
+
+    context_.addAction(QIcon::fromTheme("object-flip-horizontal"), "flip horizontal", [this]() {
+       view_->scale(-1 , 1);
+    });
+
 }
 
 MainWindow::~MainWindow()
@@ -55,7 +61,6 @@ MainWindow::openImg(const QString& fileName)
 {
     view_->load(fileName);
     QSize psize = view_->pixmapSize();
-    // TODO: get the current screen if has multi screen
     QSize availableSize = qApp->screens().first()->size() * 0.7;
     psize.scale(availableSize, Qt::KeepAspectRatio);
     resize(psize);
