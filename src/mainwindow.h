@@ -31,6 +31,7 @@ protected:
     Ui::MainWindow* ui;
     IGraphicsView *view_;
     QMenu context_;
+    qreal original_zoom_ratio_ = 1;
 
 };
 #endif // MAINWINDOW_H

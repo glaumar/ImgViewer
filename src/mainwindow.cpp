@@ -31,6 +31,18 @@ MainWindow::MainWindow(QWidget* parent)
         if (!fileName.isEmpty())
             openImg(fileName);
     });
+    context_.addAction(QIcon::fromTheme("zoom-in"), "zoom in", [this]() {
+       view_->scale(1.1, 1.1);
+    });
+
+    context_.addAction(QIcon::fromTheme("zoom-out"), "zoom out", [this]() {
+       view_->scale(0.90909, 0.90909);
+    });
+
+    context_.addAction(QIcon::fromTheme("zoom-original"), "zoom original", [this]() {
+        view_->resetTransform();
+        view_->scale(original_zoom_ratio_, original_zoom_ratio_);
+    });
 }
 
 MainWindow::~MainWindow()
@@ -60,6 +72,7 @@ MainWindow::resizeEvent(QResizeEvent* event)
 
     view_->resetTransform();
     view_->scale(ratio, ratio);
+    original_zoom_ratio_ = ratio;
 }
 
 void
