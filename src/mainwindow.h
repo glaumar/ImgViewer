@@ -5,6 +5,9 @@
 #include <QMainWindow>
 #include <QPainter>
 #include <QResizeEvent>
+#include <QContextMenuEvent>
+#include <QMenu>
+
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -23,8 +26,11 @@ class MainWindow : public QMainWindow
 
 protected:
     void resizeEvent(QResizeEvent *event) override;
+    void contextMenuEvent(QContextMenuEvent *event) override;
   private:
     Ui::MainWindow* ui;
     IGraphicsView *view_;
+    QMenu context_;
+
 };
 #endif // MAINWINDOW_H

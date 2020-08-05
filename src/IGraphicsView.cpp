@@ -23,9 +23,9 @@ void
 IGraphicsView::load(const QString& fileName)
 {
     // TODO: check file usability
-    pixmap_item_->resetTransform();
     QPixmap pic(fileName);
     pixmap_item_->setPixmap(pic);
+    scene()->setSceneRect(0, 0, pic.width(), pic.height());
 }
 
 QSize

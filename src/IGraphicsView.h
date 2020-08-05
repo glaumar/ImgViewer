@@ -12,7 +12,6 @@ class IGraphicsView : public QGraphicsView
     IGraphicsView(QWidget* parent = nullptr);
     void load(const QString &fileName);
     QSize pixmapSize();
-
   private:
     QGraphicsPixmapItem* pixmap_item_;
 };
