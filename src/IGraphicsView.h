@@ -3,6 +3,7 @@
 
 #include <QGraphicsPixmapItem>
 #include <QGraphicsView>
+#include <QSize>
 
 
 class IGraphicsView : public QGraphicsView
@@ -10,6 +11,7 @@ class IGraphicsView : public QGraphicsView
   public:
     IGraphicsView(QWidget* parent = nullptr);
     void load(const QString &fileName);
+    QSize pixmapSize();
 
   private:
     QGraphicsPixmapItem* pixmap_item_;

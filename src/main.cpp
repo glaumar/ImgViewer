@@ -13,6 +13,8 @@ int main(int argc, char *argv[])
 
     MainWindow w;
     QStringList arg = parser.positionalArguments();
+
+
     if (!arg.isEmpty()){
         w.openImg(arg.constFirst());
     }

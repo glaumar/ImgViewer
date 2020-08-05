@@ -4,6 +4,7 @@
 #include "IGraphicsView.h"
 #include <QMainWindow>
 #include <QPainter>
+#include <QResizeEvent>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -20,6 +21,8 @@ class MainWindow : public QMainWindow
     ~MainWindow();
     void openImg(const QString &fileName);
 
+protected:
+    void resizeEvent(QResizeEvent *event) override;
   private:
     Ui::MainWindow* ui;
     IGraphicsView *view_;
